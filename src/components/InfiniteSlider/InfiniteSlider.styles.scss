@@ -1,0 +1,56 @@
+.slider-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  // min-height: 100vh;
+  // max-width: 100vw;
+
+  .slider-element {
+    width: 200%;
+    height: 80px;
+
+    // border-bottom: 1px solid #4a5568;
+    overflow: hidden;
+    position: relative;
+    //position: relative;
+
+    &-container {
+      width: 200%;
+      display: flex;
+      align-items: center;
+      // height: 20px;
+      justify-content: space-around;
+      position: absolute;
+      left: 0;
+      column-gap: 12px;
+      animation: animate 20s infinite;
+
+      /* Definir animaciones por separado en CSS puro */
+      /* Definir el espaciado entre elementos utilizando márgenes o espacios en blanco */
+
+      &-image-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        width: 500px;
+
+        // height: 200px;
+      }
+    }
+  }
+}
+
+// Definimos la animación utilizando @keyframes
+@keyframes animate {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+// Asignamos la animación al elemento utilizando la clase .move-animation
+.animation {
+  animation: scroll 400s linear infinite;
+}
