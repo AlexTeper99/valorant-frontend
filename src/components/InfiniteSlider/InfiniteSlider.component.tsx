@@ -7,24 +7,28 @@ interface Props {
 
 const InfiniteSlider: React.FC<Props> = ({ characters }) => {
   return (
-    <div className={"slider-container "}>
+    <div className="slider-container">
       {/* 1. */}
 
       <div className="slider-element">
         {/* 2. */}
-        <div className="slider-element-container">
+        <div className="element-wrapper">
           {/* 3 */}
           {characters.map((character, i) => {
             return (
-              <div key={i} className="slider-image-container">
-                <img src={character} />
+              <div key={i} style={{ border: "2px solid red" }}>
+                <div className="image-container">
+                  <img src={character} />
+                </div>
               </div>
             );
           })}
           {characters.map((character, i) => {
             return (
-              <div key={i} className="slider-image-container">
-                <img src={character} />
+              <div key={i} style={{ border: "2px solid red" }}>
+                <div className="image-container">
+                  <img src={character} />
+                </div>
               </div>
             );
           })}

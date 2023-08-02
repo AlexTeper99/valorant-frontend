@@ -2,41 +2,37 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  // min-height: 100vh;
-  // max-width: 100vw;
+  min-height: 100vh;
+}
 
-  .slider-element {
-    width: 200%;
-    height: 200px;
+.slider-element {
+  width: 200%;
+  height: 10vh;
+  // border: 1px solid black;
+  overflow: hidden;
+  position: relative;
+}
 
-    // border-bottom: 1px solid #4a5568;
-    overflow: hidden;
-    position: relative;
+.element-wrapper {
+  width: 200%;
+  display: flex;
+  align-items: center;
+  height: 10vh;
+  justify-content: space-around;
+  position: absolute;
+  left: 0;
+  column-gap: 12px;
+  animation: animate 20s infinite;
 
-    &-container {
-      width: 200%;
-      display: flex;
-      align-items: center;
-      height: 200px;
-      justify-content: space-around;
-      position: absolute;
-      left: 0;
-      column-gap: 12px;
-      animation: animate 20s infinite;
+  /* Definir animaciones por separado en CSS puro */
+  /* Definir el espaciado entre elementos utilizando márgenes o espacios en blanco */
+}
 
-      /* Definir animaciones por separado en CSS puro */
-      /* Definir el espaciado entre elementos utilizando márgenes o espacios en blanco */
-
-      &-image-container {
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
-        width: 500px;
-
-        height: 200px;
-      }
-    }
-  }
+.image-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 10vh;
 }
 
 // Definimos la animación utilizando @keyframes
