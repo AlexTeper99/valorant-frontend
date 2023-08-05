@@ -20,3 +20,8 @@
     url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.svg#DINNextW1G-Regular")
       format("svg");
 }
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+}

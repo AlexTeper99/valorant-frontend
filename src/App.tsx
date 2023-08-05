@@ -1,11 +1,8 @@
 import "./index.scss";
+import { Home } from "./pages";
 
 function App() {
-  return (
-    <div className="page-container">
-      <h1 className="my-class">HOLA</h1>
-    </div>
-  );
+  return <Home />;
 }
 
 export default App;
