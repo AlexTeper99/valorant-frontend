@@ -6,8 +6,18 @@ export const Home: React.FC = () => {
   const { agents, isLoading } = useAgents();
 
   return (
-    <div className={styles.home}>
-      {isLoading ? <h1>isLoading</h1> : <>{JSON.stringify(agents)}</>}
-    </div>
+    <>
+      {isLoading ? (
+        <div className={styles["loading-container"]}>
+          <h1>isLoading</h1>
+        </div>
+      ) : (
+        <div className={styles["agents-container"]}>
+          {agents.map((agent) => (
+            <p>{agent.name}</p>
+          ))}
+        </div>
+      )}
+    </>
   );
 };

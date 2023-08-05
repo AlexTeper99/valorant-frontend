@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { getAgents } from "../service/api.service";
+import { IAgent } from "../types";
 
 export const useAgents = () => {
-  const [agents, setAgents] = useState([]);
+  const [agents, setAgents] = useState<IAgent[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadAgents = async () => {

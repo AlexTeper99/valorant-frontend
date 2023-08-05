@@ -2,7 +2,11 @@ import "./index.scss";
 import { Home } from "./pages";
 
 function App() {
-  return <Home />;
+  return (
+    <div className="page-container">
+      <Home />
+    </div>
+  );
 }
 
 export default App;
