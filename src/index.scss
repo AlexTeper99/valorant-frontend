@@ -1,9 +1,22 @@
 @font-face {
   font-family: tungstenBold;
   src: url("./fonts/Tungsten-Font/@font-face/561f38b1f4570de0fb8a39d691ab058c.ttf");
+  src: url("./fonts/Tungsten-Font/@font-face/561f38b1f4570de0fb8a39d691ab058c.eot");
+  src: url("./fonts/Tungsten-Font/@font-face/561f38b1f4570de0fb8a39d691ab058c.woff");
+  src: url("./fonts/Tungsten-Font/@font-face/561f38b1f4570de0fb8a39d691ab058c.woff2");
 }
 
-h1 {
-  font-family: tungstenBold;
-  font-weight: 800;
+@font-face {
+  font-family: "DINNextW1G-Regular";
+  src: url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.eot");
+  src: url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.woff2")
+      format("woff2"),
+    url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.woff")
+      format("woff"),
+    url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.ttf")
+      format("truetype"),
+    url("https://db.onlinewebfonts.com/t/7bb508fd7255ec38b6f29cb4cf8668cf.svg#DINNextW1G-Regular")
+      format("svg");
 }
