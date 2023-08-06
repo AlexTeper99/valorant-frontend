@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./Home.styles.module.scss";
 import { useAgents } from "../../hooks";
+import { ValorantLoadingLogo } from "../../components";
 
 export const Home: React.FC = () => {
   const { agents, isLoading } = useAgents();
@@ -9,7 +10,7 @@ export const Home: React.FC = () => {
     <>
       {isLoading ? (
         <div className={styles["loading-container"]}>
-          <h1>isLoading</h1>
+          <ValorantLoadingLogo />
         </div>
       ) : (
         <div className={styles["agents-container"]}>
