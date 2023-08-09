@@ -23,7 +23,7 @@ abstract class AbstractCircularDoubleLinkedList<T>
   abstract toArray(): T[];
 }
 
-export class MyCircularDoubleLinkedList<
+class MyCircularDoubleLinkedList<
   T
 > extends AbstractCircularDoubleLinkedList<T> {
   append(data: T): void {
@@ -67,19 +67,69 @@ export class MyCircularDoubleLinkedList<
       console.log("Your DCL is empty");
     } else {
       while (currentNode) {
-        console.log(currentNode);
+        console.log(currentNode.data);
         currentNode = currentNode.next;
 
         if (currentNode === this.head) break;
       }
     }
   }
+  remove(data: T): void {
+    if (!this.head) {
+      throw new Error("List is empty.");
+    }
 
-  remove(_data: T): void {
-    throw new Error("Method not implemented.");
+    let currentNode = this.head;
+
+    // Traverse the list to find the node with the specified data
+    while (currentNode && currentNode.next) {
+      if (currentNode.data === data) {
+        if (currentNode === this.head && currentNode === this.tail) {
+          // Case 1: Only one node in the list
+          this.head = null;
+          this.tail = null;
+        } else if (currentNode === this.head) {
+          // Case 2: Node to remove is the head
+          this.head = currentNode.next;
+          this.head!.prev = this.tail;
+          this.tail!.next = this.head;
+        } else if (currentNode === this.tail) {
+          // Case 3: Node to remove is the tail
+          this.tail = currentNode.prev;
+          this.tail!.next = this.head;
+          this.head!.prev = this.tail;
+        } else {
+          // Case 4: Node to remove is in the middle
+          const prevNode = currentNode.prev;
+          const nextNode = currentNode.next;
+          prevNode!.next = nextNode;
+          nextNode!.prev = prevNode;
+        }
+
+        return; // Node found and removed
+      }
+
+      currentNode = currentNode.next;
+
+      // If we have looped back to the head, then the data is not in the list
+      if (currentNode === this.head) {
+        throw new Error("Node not found in the list.");
+      }
+    }
   }
 
   toArray(): T[] {
-    throw new Error("Method not implemented.");
+    const result: T[] = [];
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      result.push(currentNode.data);
+      currentNode = currentNode.next;
+
+      if (currentNode === this.head) break;
+    }
+
+    return result;
   }
 }
