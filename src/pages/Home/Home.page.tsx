@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./Home.styles.module.scss";
+import { Box, Typography } from "@mui/material";
 import { useAgents } from "../../hooks";
 import { ValorantLoadingLogo } from "../../components";
 
@@ -7,18 +7,32 @@ export const Home: React.FC = () => {
   const { agents, isLoading } = useAgents();
 
   return (
-    <>
+    <Box
+      sx={{
+        height: "100vh",
+      }}
+    >
       {isLoading ? (
-        <div className={styles["loading-container"]}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            backgroundImage:
+              "linear-gradient(35deg, #ff4656ee, #0a141eee 80%), url(https://valorant-api.com/assets/img/hero-bg.jpg?v=1)",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+          }}
+        >
           <ValorantLoadingLogo />
-        </div>
+        </Box>
       ) : (
-        <div className={styles["agents-container"]}>
-          {agents.map((agent) => (
-            <p>{agent.name}</p>
-          ))}
-        </div>
+        <Box sx={{ backgroundColor: "red" }}>
+          <Typography variant="h2">Iniciador</Typography>
+          <Typography variant="h1">{agents[0].name}</Typography>
+        </Box>
       )}
-    </>
+    </Box>
   );
 };
