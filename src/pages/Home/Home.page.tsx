@@ -34,18 +34,48 @@ export const Home: React.FC = () => {
           height={"100%"}
           sx={{
             backgroundImage: {
-              xs: "none",
-              sm: `url(${currentAgent?.background})`,
+              sm: "none",
+              md: `url(${currentAgent?.background})`,
             },
-            backgroundPosition: { xs: "center", sm: "left" },
+            backgroundPosition: { sm: "center", md: "left" },
             backgroundRepeat: "no-repeat",
             backgroundColor: "hsla(0,0%,4%,0.3)",
-            backgroundSize: { xs: "100%", sm: "auto" },
+            backgroundSize: { sm: "100%", md: "auto" },
           }}
         >
-          <CharacterSwiper agents={agents} setCurrentAgent={setcurrentAgent} />
+          <Box display="flex" flexDirection="column" height="100%" width="100%">
+            <Box
+              display="flex"
+              flexGrow={1}
+              sx={{ height: `calc(100% - 160px)` }}
+            >
+              <Box
+                component="img"
+                src={currentAgent?.image}
+                alt={currentAgent?.name}
+                sx={{
+                  backgroundImage: {
+                    sm: `url(${currentAgent?.background})`,
+                    md: "none",
+                  },
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: { sm: "100%", md: "auto" },
 
-          <Typography variant="h1">{currentAgent?.name}</Typography>
+                  height: "100%",
+                  maxWidth: "100vw",
+                  objectFit: "contain",
+                }}
+              />
+            </Box>
+
+            <Box>
+              <CharacterSwiper
+                agents={agents}
+                setCurrentAgent={setcurrentAgent}
+              />
+            </Box>
+          </Box>
         </Box>
       )}
     </Box>
