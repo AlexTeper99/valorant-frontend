@@ -33,12 +33,14 @@ export const Home: React.FC = () => {
         <Box
           height={"100%"}
           sx={{
-            backgroundImage: `url(${currentAgent?.background})`,
+            backgroundImage: {
+              xs: "none",
+              sm: `url(${currentAgent?.background})`,
+            },
             backgroundPosition: { xs: "center", sm: "left" },
             backgroundRepeat: "no-repeat",
             backgroundColor: "hsla(0,0%,4%,0.3)",
             backgroundSize: { xs: "100%", sm: "auto" },
-            // color: "#fff",
           }}
         >
           <CharacterSwiper agents={agents} setCurrentAgent={setcurrentAgent} />
