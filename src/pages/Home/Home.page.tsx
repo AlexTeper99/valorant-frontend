@@ -55,12 +55,12 @@ export const Home: React.FC = () => {
                 alt={currentAgent?.name}
                 sx={{
                   backgroundImage: {
-                    sm: `url(${currentAgent?.background})`,
+                    xs: `url(${currentAgent?.background})`,
                     md: "none",
                   },
                   backgroundPosition: "center",
                   backgroundRepeat: "no-repeat",
-                  backgroundSize: { sm: "100%", md: "auto" },
+                  backgroundSize: { xs: "100%", md: "auto" },
 
                   height: "100%",
                   maxWidth: "100vw",
