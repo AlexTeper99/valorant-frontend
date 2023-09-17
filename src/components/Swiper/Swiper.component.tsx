@@ -18,7 +18,6 @@ import "./styles.css";
 // import required modules
 import { EffectCoverflow } from "swiper/modules";
 import { IAgent } from "../../types";
-import { Box } from "@mui/material";
 
 type Props = {
   agents: IAgent[];

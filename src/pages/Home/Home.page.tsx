@@ -15,12 +15,20 @@ export const Home: React.FC = () => {
   }, [!isLoading]);
 
   return (
-    <Box
-      sx={{
-        height: "100vh",
-      }}
-    >
-      {isLoading && currentAgent ? (
+    <>
+      <Box position="fixed" zIndex="1">
+        <Box
+          component="img"
+          src={currentAgent?.background}
+          // width="100vw"
+          height="80vh"
+          sx={{
+            opacity: 0.2,
+          }}
+          display={{ xs: "block", sm: "none" }}
+        />
+      </Box>
+      {isLoading ? (
         <Box
           sx={{
             ...loadingStyleContainer,
@@ -29,24 +37,29 @@ export const Home: React.FC = () => {
           <ValorantLoadingLogo />
         </Box>
       ) : (
-        <Grid
-          container
-          justifyContent="center"
-          alignItems="flex-end"
+        <Box
           sx={{
-            height: "100%",
+            height: "100vh",
             background: `linear-gradient(45deg, #${currentAgent?.backgroundGradientColors[0]} 0%, #${currentAgent?.backgroundGradientColors[3]} 100%);`,
           }}
         >
-          <Grid item>{currentAgent?.name}</Grid>
-          <Grid item xs={12} marginBottom="20px">
-            <CharacterSwiper
-              agents={agents}
-              setCurrentAgent={setcurrentAgent}
-            />
-          </Grid>
-        </Grid>
+          <Box
+            position="fixed"
+            width={{ xs: "0", sm: "100vw" }}
+            height={{ xs: "0", sm: "100vh" }}
+            top={{ xs: "-5%", sm: "-45px" }}
+            left={{ xs: "-100px", sm: "20px" }}
+            sx={{
+              backgroundImage: `url(${currentAgent?.background})`,
+              backgroundRepeat: "repeat-y",
+
+              opacity: 0.2,
+            }}
+          />
+
+          <CharacterSwiper agents={agents} setCurrentAgent={setcurrentAgent} />
+        </Box>
       )}
-    </Box>
+    </>
   );
 };
